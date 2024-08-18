@@ -1,0 +1,30 @@
+[
+    {
+    "id": "b16ecd2b-596e-4453-a05c-fe10d6f1a4c2",
+    "full_name": "Gobby",
+    "unit": "GT230",
+    "emp_avatar": "https://robohash.org/dfgdfgsam.jpg?size=300x300&set=set1", 
+    "capacity" : 25
+},
+{
+    "id": "b16ecd2b-596e-4453-a05c-gf5dg45645",
+    "full_name": "Simpson",
+    "unit": "B540",
+    "emp_avatar": "https://robohash.org/randrew.jpg?size=300x300&set=set1",
+    "capacity" : 34
+},
+{
+    "id": "b16ecd2b-596e-4453-a05c-hgg564dgdg",
+    "full_name": "Toby",
+    "unit": "GF412",
+    "emp_avatar": "https://robohash.org/vanga.jpg?size=300x300&set=set1",
+    "capacity" : 21
+},
+{
+    "id": "b16ecd2b-596e-4453-a05c-gf45645ghfh",
+    "full_name": "Arktur",
+    "unit": "JH760",
+    "emp_avatar": "https://robohash.org/hjhgjtytry.jpg?size=300x300&set=set1",
+    "capacity" : 42
+}
+]
