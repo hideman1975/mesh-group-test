@@ -9,6 +9,7 @@
                 <tr>
                     <th>Series</th>
                     <th>Model</th>
+                    <th>Capacity (Hrs)</th>
                     <th>ID</th>
                     <th>Action</th>
                 </tr>
@@ -17,6 +18,7 @@
                 <tr *ngFor="let emp of products">
                     <td>{{ emp.full_name }}</td>
                     <td>{{ emp.unit }}</td>
+                    <td>{{ emp.capacity }}</td>
                     <td>{{ emp.id }}</td>
                     <td>
                         <button class="btn btn-warning btn-sm" ngbTooltip="Delete" (click)="onDeleteAction(emp.id)">
@@ -46,7 +48,7 @@
             (ngSubmit)="userForm.form.valid && onSubmit(userForm)"
           >
             <div class="form-group mb-3 ">
-              <label>Name</label>
+              <label>Series</label>
               <input
                 type="text"
                 name="name"
@@ -82,11 +84,11 @@
               </div>
         
             <div class="form-group mb-3">
-              <label>Series</label>
-              <select class="form-control" name="series"  #series="ngModel" [(ngModel)]="activeProduct.unit" required>
-                <option value="" disabled>Select a series</option>
-                <option *ngFor="let ser of Series" [value]="ser">
-                  {{ ser }}
+              <label>Model</label>
+              <select class="form-control" name="model"  #model="ngModel" [(ngModel)]="activeProduct.unit" required>
+                <option value="" disabled>Select a model</option>
+                <option *ngFor="let model of Models" [value]="model">
+                  {{ model }}
                 </option>
               </select>
               
@@ -97,50 +99,8 @@
               <button type="button" class="btn btn-outline-primary btn-sm" (click)="modal.dismiss('Cross click')"><i class="fa fa-undo"></i> Close</button>
             </div>
 
-            <!-- <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" [disabled]="!userForm.form.valid" (click)="modal.close('Save click')">
-                    <i class="fa fa-save"></i> Save</button>
-                <button type="button" class="btn btn-outline-primary" (click)="modal.dismiss('Cross click')">
-                    <i class="fa fa-undo"></i> Close</button>
-            </div> -->
           </form>
-
-
-
         </div>
-        <!-- <div class="modal-body">
-            <img [src]="image" class="rounded" alt="Cinque Terre">
-
-            <form class="was-validated">
-                <div class="form-group">
-                    <label for="uname">Short Name:</label>
-                    <input type="text" class="form-control" id="fname" placeholder="Enter short name" name="fname"
-                        required [(ngModel)]="employeeName">
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div>
-                </div>
-                <div class="form-group">
-                    <label for="uname">Series:</label>
-                    <input type="text" class="form-control" id="uname" placeholder="Enter series" name="uname"
-                        required [(ngModel)]="selectedDepart">
-                    <div class="valid-feedback">Valid.</div>
-                    <div class="invalid-feedback">Please fill out this field.</div>
-                </div>
-                <div class="form-group">
-                    <label for="capacity">Battery (Hrs):</label>
-                    <input type="number" class="form-control" id="capacity" placeholder="Enter capacity" name="capacity"
-                       [formControl]="email">
-                    <div class="valid-feedback">Valid.</div>
-                    <div *ngIf="email.invalid" class="invalid-feedback">Out of rage</div>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline-primary" [disabled]="email.invalid" (click)="modal.close('Save click')">
-                <i class="fa fa-save"></i> Save</button>
-            <button type="button" class="btn btn-outline-primary" (click)="modal.dismiss('Cross click')">
-                <i class="fa fa-undo"></i> Close</button>
-        </div> -->
     </ng-template>
 
 </div>

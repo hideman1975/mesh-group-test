@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, retry, throwError } from 'rxjs';
+import { IProduct } from './models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,6 @@ export class ProductService {
    * Get All Products request.
    */
   getAllProducts(): Observable<any> {
-    console.log('get all')
     return this.http
       .get<any>("http://localhost:4200/products/", { observe: "response" })
       .pipe(
@@ -20,23 +20,21 @@ export class ProductService {
       );
   }
   /**
-   * Add a new employee post requts.
-   * @param employee a new employee to add.
+   * Add a new product post request.
+   * @param product a new product to add.
    */
-  addProduct(employee: any): Observable<any> {
-    console.log('add Product', employee)
+  addProduct(product: IProduct): Observable<any> {
     return this.http
-      .post<any>("http://localhost:4200/products/", employee, {
+      .post<any>("http://localhost:4200/products/", product, {
         observe: "response",
       })
       .pipe(catchError(this.handleError));
   }
-/**
-   * Edit product post requts.
-   * @param employee a new employee to add.
+ /**
+   * Edit product post request.
+   * @param product a product to edit
    */
-  editProduct(product: any): Observable<any> {
-    console.log('edit Product', product)
+  editProduct(product: IProduct): Observable<any> {
     return this.http
       .put<any>("http://localhost:4200/products/", product, {
         observe: "response",
@@ -47,14 +45,14 @@ export class ProductService {
    * Delete an product request method.
    * @param empId product unique id
    */
-  deleteProduct(empId: any) {
-    console.log('delete product', empId)
+  deleteProduct(empId: string) {
     return this.http
       .delete<any>("http://localhost:4200/products/" + empId, {
         observe: "response",
       })
       .pipe(catchError(this.handleError));
   }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
